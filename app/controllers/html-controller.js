@@ -5,17 +5,17 @@ var moment = require("moment");
 
 function scrape(req, res) {
     var url = "http://www.inventorspot.com";
-    request(url + "/news", function (error, response, body) {   
+    request(url + "/news", function (error, response, body) {
         if (error) {
             res.send(500, {error});
 
         } else {
             var $ = cheerio.load(body);
             var results = [];
-    
+
             $(".ntype-blog-2").each(function (i, element) {
                 var result = {};
-    
+
                 result.title = $(this)
                     .children("h2")
                     .text();
@@ -33,8 +33,8 @@ function scrape(req, res) {
 
                 results.push(result);
                 return i < 19;
-            });   
-                         
+            });
+
             db.Article.create(
                 results
             )
@@ -67,7 +67,7 @@ function all(req, res) {
                 .count()
                 .exec(function(err, count) {
                     if (err) {console.log(err)}
-                    res.render("index", {              
+                    res.render("index", {
                         moment,
                         articles,
                         current: page,
@@ -83,10 +83,12 @@ function addNote(req, res) {
             return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { notes: dbNote._id } }, { new: true });
         })
         .then(function (dbArticle) {
+
             // If the User was updated successfully, send it back to the client
             res.redirect("/#" + req.params.id);
         })
         .catch(function (err) {
+          
             // If an error occurs, send it back to the client
             console.log(err);
         });
