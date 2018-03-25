@@ -1,0 +1,63 @@
+<% if( articles.length > 0) { %>
+    <a class="btn-link" href="/scrape">
+        <p class="text-right">
+                Scrape new articles...
+        </p>
+    </a>
+    <div id="accordion" class="mb-3">
+        <% articles.map(function(article, i) { %>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="row">
+                        <a id="<%= article.id %>" class="col btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="false" aria-controls="collapse<%= i %>">
+                            <h5 class="mb-0">
+                                <%= article.title %>
+                            </h5>
+                        </a>
+                        <div class="col-sm col-sm-auto">
+                            <a class="btn-link" href="<%= article.link %>" target="_blank"><i class="fas fa-external-link-alt ml-3"></i></a>
+                            <% if (article.notes.length > 0) { %>
+                                <span><%= article.notes.length %><i class="far fa-comments ml-3 mr-3"></i></span>
+                            <% } %>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                                <div class="col-sm col-sm-auto">
+                                    <div class="card-img-bottom">
+                                        <img src="<%= article.img %>" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p><%= article.description %></p>
+                                    <p>Retrieval Date: <%= article.date %></p>
+                                </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <a name="<%= article._id %>"></a>
+                
+                                <%- include ./notes %>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% } else { %>
+    <div class="card">
+        <div class="card-header">
+            <a class="float-right btn-link" href="/scrape">
+                <h5 class="mb-0">
+                        Scrape new articles from the web...
+                </h5>
+            </a>
+        </div>
+    </div>
+<% } %>

@@ -1,0 +1,64 @@
+body {
+    background: url(/assets/img/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
+    background-size: auto;
+    max-width: 1000px;
+}
+
+.jumbotron {
+    background: none;
+    color: rgb(255, 102, 102);
+}
+
+.btn-primary{
+    background-color: rgba(191, 64, 64, 0.65) !important;
+    border-color: rgba(255, 102, 102, 0.65);
+    color: beige;
+}
+
+.page-link {
+    background-color: rgba(191, 64, 64, 0.65) !important;
+    border: none;
+    color: beige;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: rgba(255, 102, 102, 0.65);
+    border-color: rgba(191, 64, 64, 0.65);
+}
+
+.page-link:active,
+.page-link:hover, 
+.page-link:focus {
+    color: white;
+    font-weight: bold;
+    background-color: rgba(255, 102, 102, 0.65) !important;
+    border-color: rgba(255, 102, 102, 0.65);
+}
+
+.card {
+    background-color: rgba(191, 64, 64, 0.55);
+    color: beige;
+}
+
+.card-body {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.btn-link {
+    white-space: normal;
+    text-align: left;
+    color: beige;
+}
+
+/* @media */
+/* Small */
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) { 
+
+}
+

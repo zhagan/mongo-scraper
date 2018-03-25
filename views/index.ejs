@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron mb-0">
+            <div class="container">
+                <h1 class="display-4">
+                    <i class="far fa-newspaper mr-3"></i>
+                    Inventor News
+                </h1>
+                <p class="lead">New ideas scraped from the web</p>
+            </div>
+        </div>
+
+        <%- include ./partials/articles %>
+
+        <%- include ./partials/pagination %>
+
+    </div>
+
+    <%- include ./partials/scripts %>
+</body>
+
+</html>
