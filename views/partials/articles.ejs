@@ -4,6 +4,7 @@
                 Scrape new articles...
         </p>
     </a>
+    
     <div id="accordion" class="mb-3">
         <% articles.map(function(article, i) { %>
             <div class="card mb-3">
@@ -21,7 +22,7 @@
                             <% } %>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#accordion">
                     <div class="card-body">
@@ -34,12 +35,12 @@
                                 <div class="col">
                                     <p><%= article.description %></p>
                                     <p>Retrieval Date: <%= article.date %></p>
-                                </div> 
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <a name="<%= article._id %>"></a>
-                
+
                                 <%- include ./notes %>
                             </div>
 
